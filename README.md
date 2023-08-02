@@ -1,4 +1,4 @@
-使用[langchain]([langchain-ai/langchain: ⚡ Building applications with LLMs through composability ⚡ (github.com)](https://github.com/langchain-ai/langchain)) 和[OPENAI]([OpenAI](https://openai.com/)) ChatGPT实现了一个连接本地数据库做sql生成的demo
+使用[langchain](https://github.com/langchain-ai/langchain) 和[OPENAI]([OpenAI](https://openai.com/)) ChatGPT实现了一个连接本地数据库做sql生成的demo
 
 **前提**
 
