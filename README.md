@@ -35,6 +35,6 @@ http_proxy:配置代理 默认 127.0.0.1:7890
 https_proxy:配置代理 默认 127.0.0.1:7890
 
 ```
-
+![test_result](assets/test_result.png)
 
 
