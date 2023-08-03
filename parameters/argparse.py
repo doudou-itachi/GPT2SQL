@@ -33,6 +33,10 @@ def get_argparse():
     parser.add_argument('--https_proxy', type=str, required=False, default="127.0.0.1:7890",
                         help='https_proxy')
 
+    parser.add_argument('--use_other', type=int, required=False, default=0,
+                        help='use agents and tools module'
+                             'url：https://python.langchain.com/docs/integrations/toolkits/sql_database')
+
     args = parser.parse_args()
 
     return args
