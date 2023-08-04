@@ -1,4 +1,6 @@
+import logging
 import os
+import sys
 
 from langchain import SQLDatabase, OpenAI
 from langchain.agents import create_sql_agent, AgentType
@@ -7,6 +9,24 @@ from langchain.agents.agent_toolkits import SQLDatabaseToolkit
 from database.connect_database import DataBaseConnect
 from openaichat.generate_model import LLMInterface
 from parameters.argparse import get_argparse
+
+
+def get_logger(name: str) -> logging.Logger:
+    formatter = logging.Formatter(
+        fmt="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
+        datefmt="%m/%d/%Y %H:%M:%S"
+    )
+    handler = logging.StreamHandler(sys.stdout)
+    handler.setFormatter(formatter)
+
+    logger = logging.getLogger(name)
+    logger.setLevel(logging.INFO)
+    logger.addHandler(handler)
+
+    return logger
+
+
+logger = get_logger(__name__)
 
 
 def main():
@@ -53,7 +73,8 @@ def main():
             # 设为True 获取中间步骤生成的SQL语句
             agent_executor.return_intermediate_steps = True
             output = agent_executor(prompt)
-            print("SQL:", output['intermediate_steps'][-1][0].tool_input)
+            # GET SQL
+            logger.info(output['intermediate_steps'][-1][0].tool_input)
 
 
 if __name__ == '__main__':
